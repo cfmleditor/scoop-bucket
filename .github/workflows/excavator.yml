@@ -1,0 +1,24 @@
+name: Excavator
+
+# Scoop's own updater: checks each manifest's checkver for a new release and,
+# when there is one, rewrites the manifest from its autoupdate block (URL, and
+# the hash from the release's checksums.txt) and pushes the commit.
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  excavate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Excavate
+        uses: ScoopInstaller/GithubActions@v3.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SKIP_UPDATED: "1"
