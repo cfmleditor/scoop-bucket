@@ -13,7 +13,7 @@ jobs:
   install:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Install Scoop
         shell: pwsh
@@ -22,11 +22,12 @@ jobs:
           .\install.ps1 -RunAsAdmin
           "$env:USERPROFILE\scoop\shims" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
 
-      - name: Install clif from this bucket
+      # From the manifest file itself: scoop bucket add takes a git URL, not
+      # a checkout, and this tests the manifest as committed in this change.
+      - name: Install clif from this bucket's manifest
         shell: pwsh
         run: |
-          scoop bucket add cfmleditor "$env:GITHUB_WORKSPACE"
-          scoop install cfmleditor/clif
+          scoop install "$env:GITHUB_WORKSPACE\bucket\clif.json"
           if ($LASTEXITCODE -ne 0) { throw "scoop install failed: $LASTEXITCODE" }
 
       - name: Run it, by both names
