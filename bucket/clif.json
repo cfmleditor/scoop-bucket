@@ -1,16 +1,16 @@
 {
-    "version": "0.7.5",
+    "version": "0.7.6",
     "description": "CFML language server and command-line checks: CFLint, unresolved calls, references (formerly cfmleditor-lsp)",
     "homepage": "https://github.com/cfmleditor/clif",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/cfmleditor/clif/releases/download/v0.7.5/clif-windows-amd64.zip",
-            "hash": "aab41329b935dcf5d21f0ef4ee4d4ce6e3b54347430396ba47dc0556cad910a8"
+            "url": "https://github.com/cfmleditor/clif/releases/download/v0.7.6/clif-windows-amd64.zip",
+            "hash": "455641503b3b2d7318a194193a5d9f670ed95817d06d55c3f16d9bfb00036dd9"
         },
         "arm64": {
-            "url": "https://github.com/cfmleditor/clif/releases/download/v0.7.5/clif-windows-amd64.zip",
-            "hash": "aab41329b935dcf5d21f0ef4ee4d4ce6e3b54347430396ba47dc0556cad910a8"
+            "url": "https://github.com/cfmleditor/clif/releases/download/v0.7.6/clif-windows-amd64.zip",
+            "hash": "455641503b3b2d7318a194193a5d9f670ed95817d06d55c3f16d9bfb00036dd9"
         }
     },
     "bin": [
